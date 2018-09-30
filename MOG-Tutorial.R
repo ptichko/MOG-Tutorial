@@ -13,8 +13,8 @@
 #McMurray et al. (2009) argue directly against using MOGs with the EM algorithm to model infant statistical learning for two reasons:
 #EM algorithm uses a large batch of input, but infants must learn iteratively (i.e., they do not get "batch" data). 
 #EM algorithm doesn't learn the number of Gaussians/categories (the number is specified a priori #), only the parameters of the Gaussians are estimated
-#In their paper, McMurray et al. (2009) discared the EM alogrithm and use MLE with a competition algorithm.
-#Here, I use EM, as that is implemented in mixtools.
+#In their paper, McMurray et al. (2009) discard the EM alogrithm and use MLE with a competition algorithm.
+#Here, I use EM, as that is implemented in the Mixtools library, to learn more about MOGs.
 
 #Mixtools is an R library for MOG
 install.packages("mixtools") #Mixtools has built in MOG models with the EM algorithm
