@@ -1,4 +1,4 @@
-####Mixture of Gaussian  Models: A Tutorial Using simulatd VOT data####
+####Mixture of Gaussian  Models: A Tutorial Using simulated VOT data####
 #A tutorial using the library Mixtools to model infants' statistical learning of speech sound categories
 #The statistical model is a MOG whose parameters are estimated using the EM algorithm
 #First, a model is introduced to estimate parameters of VOT distrbutions for voiced/voiceless speech sounds using EM.
@@ -70,7 +70,7 @@ mixmdl <- normalmixEM(VOT.data$VOTs, k = k, maxit = 100, epsilon = 0.01)
 #Summary of model
 summary(mixmdl)
 
-#Fitted parameters. Hey! The fitted parameters match the parameters of the simulated data quote well.
+#Fitted parameters. Hey! The fitted parameters match the parameters of the simulated data quite well.
 mixmdl$mu
 mixmdl$sigma
 mixmdl$lambda
