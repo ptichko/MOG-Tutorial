@@ -5,11 +5,11 @@
 #Then, a hypothesis testing approach is introduced to determine the number of components/categories.
 
 ####Background Info####
-#Model based loosely off of McMurray et al. (2009), Developmental Science, and Kuhl et al. (1997), 
+#Model based loosely off of McMurray et al. (2009), Developmental Science, and de Boer & Kuhl (2003), Acoustics Research Letters
 #Infants learn speech sound categories based off of distributional features of speech cues.
 #Evidence suggests that infant use voice onset time (VOT) to learn voiced and voiceless speech sounds.
 
-####Developmental Ceveats####
+####Developmental Caveats####
 #McMurray et al. (2009) argue directly against using MOGs with the EM algorithm to model infant statistical learning for two reasons:
 #EM algorithm uses a large batch of input, but infants must learn iteratively (i.e., they do not get "batch" data). 
 #EM algorithm doesn't learn the number of Gaussians/categories (the number is specified a priori #), only the parameters of the Gaussians are estimated
@@ -21,7 +21,7 @@ install.packages("mixtools") #Mixtools has built in MOG models with the EM algor
 library(mixtools)
 
 ####Simulate VOT language input####
-#Simulated input parameters taken from MCMurray et al. (2009), table 1
+#Simulated input parameters taken from McMurray et al. (2009), table 1, row 1
 #Bimodel distrbution of VOTs reflecting voiced and voiceless speech sounds
 #voiced parameters: mean = 0, sd = 5, lambda = 0.5
 mu.vd <- 0
@@ -62,9 +62,9 @@ lines(density(VOT.data$VOTs))
 k <- 2 # num of Gaussians/categories
 
 #Run model
-# k = num of components/Gaussians
-# maxit = num
-# epsilon = 
+# k = number of components/Gaussians
+# maxit = max number of iterations for converging the model
+# epsilon = run until the log-likelihood changes by less than epsilon. Usually set to 10^-8
 mixmdl <- normalmixEM(VOT.data$VOTs, k = k, maxit = 100, epsilon = 0.01)
 
 #Summary of model
@@ -88,7 +88,7 @@ plot(hist(VOT.data$VOTs,breaks=50),col="grey",border="grey",freq=FALSE,
 lines(density(VOT.data$VOTs),lty=2)
 sapply(1:k,plot.normal.components,mixture=mixmdl)
 
-## Initialize MOG model to have it learn K through bootstrapping and hypothesis testing
+####Initialize MOG model to have it learn K through bootstrapping and hypothesis testing####
 mixmdl.2 <- boot.comp(VOT.data$VOTs,max.comp=15,mix.type="normalmix",
                       maxit=100,epsilon=1e-2)
 #Summary
