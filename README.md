@@ -80,7 +80,7 @@ speech-sound categories), while infants who are learning a spoken
 language do not. Next, a hypothesis-testing approach is introduced, in
 which the MOG model learns the “correct” number of k through
 bootstrapping and hypothesis-testing. The p-values correspond to tests
-between a model feature k categories and a model featuring k+1
+between a model featuring k categories and a model featuring k+1
 categories. Here, we see that the first p-value, reflecting a model
 comparision between k = 1 vs. k = 2, is significant. However, the
 p-value for a model comparision k = 2 vs. k = 3 is not. Thus, the model
