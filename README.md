@@ -15,9 +15,9 @@ learning of speech-sound categories.
 Research suggests that infants learn speech-sound categories from
 distributional features of speech cues, such as the voice onset time
 (VOT) of voiced and voiceless speech sounds. One popular computational
-model of this learning process is the Mixture of Gaussian (MOG) Model.
+model of this learning process is the Mixture of Gaussian (MOG) model.
 In this tutorial, a MOG model, whose parameters are estimated using the
-Expectation-Maximization (EM) algorithm, is used to model infants’
+Expectation-Maximization (EM) algorithm, is used to simulate infants’
 learning of speech sounds. First, a model is introduced to estimate
 parameters of VOT distrbutions for voiced and voiceless speech sounds
 using Expectation Maximization (EM) with a known number of categories.
@@ -37,7 +37,7 @@ corresponding to voice and voiceless speech sounds, based on VOT data
 cited in McMurray et al. (2009). A histogram of the simulated data
 clearly shows the two speech-sound “categories” (i.e., a bi-modal
 distribution of the VOT data), each representing the VOTs for voiced and
-voiceless speech sound:
+voiceless speech sounds:
 
 <img src="Figures/VOT_plot-1.png" width="100%" />
 
