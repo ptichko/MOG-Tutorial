@@ -50,11 +50,11 @@ head(VOT.data)
 dim(VOT.data)
 
 #Plot density by voiced/voiceless
-lattice::histogram(~ VOTs | VOT.type, data = VOT.data, type = "density", breaks = 50)
+# lattice::histogram(~ VOTs | VOT.type, data = VOT.data, type = "density", breaks = 50)
 
 #Plot density of all VOT data
-hist(VOT.data$VOTs, breaks = 50, freq = FALSE, col="grey",border="grey")
-lines(density(VOT.data$VOTs))
+hist(VOT.data$VOTs, breaks = 75, freq = FALSE, col="grey",border="grey", xlab = "Voice Onset Time (VOT) in Milliseconds", main = "VOT for Voiced and Voiceless")
+lines(density(VOT.data$VOTs), lwd = 2)
 
 #### Initialize MOG model with a prioi # of Guassians/cateogires (e.g. K) ####
 
@@ -84,9 +84,13 @@ plot.normal.components <- function(mixture,component.number,...) {
 }
 
 plot(hist(VOT.data$VOTs,breaks=50),col="grey",border="grey",freq=FALSE,
-     xlab="Voice Onset Time (VOT)",main="VOTs for Voiced and Voiceless")
-lines(density(VOT.data$VOTs),lty=2)
-sapply(1:k,plot.normal.components,mixture=mixmdl)
+     xlab="Voice Onset Time (VOT) in Milliseconds",main="VOTs for Voiced and Voiceless")
+#lines(density(VOT.data$VOTs),lty=2)
+#sapply(1:k,plot.normal.components,mixture=mixmdl, lty = 2)
+plot.normal.components(mixture=mixmdl, component.number = 1, lty = 2)
+plot.normal.components(mixture=mixmdl, component.number = 2, lty = 3)
+
+
 
 ####Initialize MOG model to have it learn K through bootstrapping and hypothesis testing####
 mixmdl.2 <- boot.comp(VOT.data$VOTs,max.comp=15,mix.type="normalmix",
